@@ -7,11 +7,11 @@ An intelligent **AI-powered shopping assistant** built with **Streamlit + LangCh
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="assets/screenshot1.png" width="80%" alt="Chat Interface"/>
+  <img src="assets/screenshot.png" width="80%" alt="Chat Interface"/>
 </p>
 
 <p align="center">
-  <img src="assets/screenshot2.png" width="80%" alt="Image Search Feature"/>
+  <img src="assets/screenshot1.png" width="80%" alt="Image Search Feature"/>
 </p>
 
 ---
