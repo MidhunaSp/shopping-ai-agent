@@ -171,4 +171,4 @@ A practical **AI agent application** combining:
 
 ---
 
-# Made with curiosity✨
+Made with curiosity✨
