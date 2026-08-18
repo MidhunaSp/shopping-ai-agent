@@ -1,74 +1,174 @@
-# AI Shopping Assistant
+# 🛍️ AI Shopping Agent
 
-A Streamlit chat app that lets you search a small store catalog (honey, oils,
-nuts, grains, tea/coffee, snacks, dairy-alternatives), filter by price /
-organic / rating, place an order, and even search "by image" using a vision
-model.
+An intelligent **AI-powered shopping assistant** built with **Streamlit + LangChain + Groq**, designed to help users discover, filter, and purchase products through natural conversation — including **image-based product search**.
 
-Built with LangChain + Groq, using `openai/gpt-oss-120b` for both chat and
-image understanding (it's multimodal, so one model handles both).
+---
 
-> Note: the original models this project shipped with — `qwen/qwen3-32b` and
-> `meta-llama/llama-4-scout-17b-16e-instruct` — were deprecated by Groq on
-> June 17, 2026. `shopping_agent.py` has been updated to use
-> `openai/gpt-oss-120b` instead, which Groq recommends as the replacement
-> for both. If Groq deprecates this model too in the future, check
-> https://console.groq.com/docs/models for the current list and swap the
-> model string in `shopping_agent.py`.
+## 📸 Screenshots
 
-## 1. Set up a virtual environment (recommended)
+<p align="center">
+  <img src="assets/screenshot1.png" width="80%" alt="Chat Interface"/>
+</p>
+
+<p align="center">
+  <img src="assets/screenshot2.png" width="80%" alt="Image Search Feature"/>
+</p>
+
+---
+
+## 🚀 Features
+
+* 💬 **Conversational Shopping**
+  Ask naturally: *“Show organic honey under $15 with 4+ rating”*
+
+* 🔍 **Smart Filtering**
+  Filter by price, category, organic tag, and ratings
+
+* 🖼️ **Image-Based Search**
+  Upload a product image to find similar items using a multimodal model
+
+* 🛒 **Order Placement**
+  Place orders directly through chat (e.g., *“order number 2”*)
+
+* 🧠 **Multimodal AI**
+  Uses a single model for both **text + image understanding**
+
+---
+
+## 🧱 Tech Stack
+
+* **Frontend:** Streamlit
+* **Backend:** Python
+* **AI Framework:** LangChain
+* **LLM Provider:** Groq
+* **Model:** `openai/gpt-oss-120b`
+* **Database:** SQLite (`store.db`)
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Create Virtual Environment
 
 ```bash
 python -m venv venv
 source venv/bin/activate      # Windows: venv\Scripts\activate
 ```
 
-## 2. Install dependencies
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 3. Add your Groq API key
+### 3. Configure API Key
 
-Get a free key from https://console.groq.com/keys, then:
+Get your key from: https://console.groq.com/keys
 
 ```bash
 cp .env.example .env
 ```
 
-Open `.env` and paste your key:
+Add inside `.env`:
 
 ```
-GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxxxxx
+GROQ_API_KEY=your_api_key_here
 ```
 
-## 4. Set up the database (already included, but you can rebuild it)
+---
 
-`store.db` is already in this folder, pre-populated with 32 products and
-reviews. If you ever want to reset it:
+### 4. Database Setup
+
+Pre-built `store.db` is already included with products and reviews.
+
+To reset:
 
 ```bash
 python setup_db.py
 ```
 
-## 5. Run the app
+---
+
+### 5. Run the App
 
 ```bash
 streamlit run app.py
 ```
 
-This opens the chat UI at http://localhost:8501.
+Open: http://localhost:8501
 
-- Type things like: `I want organic honey under $15 with 4+ rating`
-- Or use the sidebar to upload a product photo and click
-  "Find similar products"
-- Confirm with "yes" / "order number 2" etc. to place an order
+---
 
-## Notes
+## 💡 Usage Examples
 
-- `reviews_api.py` and `setup_db.py` are helper modules, not services you
-  need to run separately — `shopping_agent.py` imports `reviews_api`
-  directly, and `store.db` is used by everything via plain SQLite (no server
-  needed).
-- Orders are saved into the `orders` table inside `store.db`.
+* *“I want organic honey under $15”*
+* *“Show snacks with rating above 4”*
+* Upload image → Click **Find similar products**
+* *“Order number 2”*
+
+---
+
+## 📂 Project Structure
+
+```
+├── app.py
+├── shopping_agent.py
+├── reviews_api.py
+├── setup_db.py
+├── store.db
+├── requirements.txt
+├── .env.example
+└── assets/
+    ├── screenshot1.png
+    └── screenshot2.png
+```
+
+---
+
+## ⚠️ Model Notes
+
+Previously used:
+
+* `qwen/qwen3-32b`
+* `meta-llama/llama-4-scout-17b-16e-instruct`
+
+Now updated to:
+
+```
+openai/gpt-oss-120b
+```
+
+Check latest models:
+https://console.groq.com/docs/models
+
+---
+
+## 🧩 Notes
+
+* No separate backend server required
+* Uses SQLite (lightweight, local database)
+* Orders stored in `store.db`
+
+---
+
+## 🌟 Future Improvements
+
+* Personalized recommendations
+* Payment integration
+* Multi-user authentication
+* Real-time inventory updates
+
+---
+
+## 📌 Summary
+
+A practical **AI agent application** combining:
+
+* Conversational AI
+* Smart filtering
+* Multimodal search
+* End-to-end shopping experience
+
+---
+
+# Made with curiosity✨
